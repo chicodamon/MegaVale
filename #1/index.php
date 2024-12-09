@@ -34,7 +34,7 @@ $tasks = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 <td><?= htmlspecialchars($task['status']) ?></td>
                 <td>
                     <a href="update_task.php?id=<?= $task['id'] ?>">Atualizar Status</a>
-                    <a href="delete_task.php?id=<?= $task['id'] ?>" onclick="return confirm('Tem certeza que deseja excluir?')">Excluir</a>
+                    <a href="del_task.php?id=<?= $task['id'] ?>" onclick="return confirm('Tem certeza que deseja excluir?')">Excluir</a>
                 </td>
             </tr>
             <?php endforeach; ?>
