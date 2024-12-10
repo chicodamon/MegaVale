@@ -1,10 +1,11 @@
 html,
+
 body {
   height: 100%;
 }
 
 .form-signin {
-  max-width: 330px;
+  max-width: 430px;
   padding: 1rem;
 }
 
