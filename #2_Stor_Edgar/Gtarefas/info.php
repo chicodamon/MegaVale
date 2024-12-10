@@ -1,0 +1,6 @@
+<?php
+
+// Executar phpinfo
+phpinfo();
+
+?>
