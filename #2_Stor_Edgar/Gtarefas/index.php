@@ -1,3 +1,58 @@
+<?php
+// iniciar uma sessao
+session_start();
+
+// Carregar ficheiro db.php responsavel pelo acesso a db
+include_once("db.php");
+
+//verificar se ha um post
+if($_SERVER["REQUEST_METHOD"] == "POST"){
+  //verificar os campos username e password
+
+  if(empty($_POST["username"]) || empty($_POST["password"])){
+    // redirecionamos para a página index.php com o codigo de erro = 1
+    header("location: index.php?erro=1");
+  else{ 
+    //definimos as variaveis
+    $username = $_POST["username"];
+    $password = $_POST["password"];
+
+    //consula á BD
+    $query = "select * from utilizadores where username='$username'";
+
+    // executar a consulta
+    $resultado = mysqli_query($conexao, $query);
+
+    // se o resultado resultar em true...
+    if ($resultado) {
+      $utilizadores = mysqli_fetch_row($resultado);
+      $idUtilizador = $utilizador[0];
+      $usernameUtilizador = $utilizador[1];
+      $passwordUtilizador = $utilizador[2];
+
+      //verificar a password
+      if (password_verify($password, $passwordUtilizador)) {
+        // se a password estiver correta iniciamos uma sessao
+        session_start();
+
+        // guardamos os dados em variaveis de sessao
+        $_SESSION["login"] = true;
+        $_SESSION["id"] = $idUtilizador;
+        $_SESSION["username"] = $usernameUtilizador;
+
+        // redirecionamos para a pàgina home.php
+        header("location: home.php");
+
+      }else{
+        // no caso da password invalida redirecionamos para o index.php com erro 2
+        header("location: index.php?erro=2");
+      }
+
+    }
+  }
+}
+
+?>
 <!doctype html>
 <html lang="pt" data-bs-theme="auto">
   <head><script src="../assets/js/color-modes.js"></script>
