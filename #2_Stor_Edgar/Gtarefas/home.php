@@ -22,18 +22,21 @@
   <body class="d-flex h-100 text-center text-bg-dark">
 
     
-<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column ">
 
 
 
 <?php
   //* efetuar carregamento dp header.inc.php
     include_once("header.inc.php");
+
+  //* incluimos o ficheiro com as funçoes
+  include_once("functions.php");
 ?>
 
-  <main class="px-3 mt-5">
-    <h1>Cover your page.</h1>
-    <p class="lead">Cover is a one-page template for building simple and beautiful home pages. Download, edit the text, and add your own fullscreen background photo to make it your own.</p>
+  <main class="position-absolute top-50 start-50 translate-middle">
+    <h1>Olá, <?=$_SESSION["username"]?></h1>
+    <p class="lead">Hoje é <?php echo hoje() ?></p>
     <p class="lead">
       <a href="#" class="btn btn-lg btn-light fw-bold border-white bg-white">Learn more</a>
     </p>
