@@ -1,6 +1,6 @@
 <?php
 
-// Executar phpinfo
+//* Executar phpinfo
 phpinfo();
 
 ?>

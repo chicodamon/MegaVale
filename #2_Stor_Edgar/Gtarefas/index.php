@@ -1,26 +1,26 @@
 <?php
-// Iniciar uma sessão
+//* Iniciar uma sessão
 session_start();
 
-// Carregar ficheiro db.php responsável pelo acesso à db
+//* Carregar ficheiro db.php responsável pelo acesso à db
 include_once("db.php");
 
-// Verificar se há um POST
+//* Verificar se há um POST
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Verificar os campos username e password
+    //* Verificar os campos username e password
     if (empty($_POST["username"]) || empty($_POST["password"])) {
-        // Redirecionar para a página index.php com o código de erro = 1
+        //* Redirecionar para a página index.php com o código de erro = 1
         header("location: index.php?erro=1");
         exit;
     } else {
-        // Definir as variáveis
+        //* Definir as variáveis
         $username = mysqli_real_escape_string($conexao, $_POST["username"]);
         $password = $_POST["password"];
 
-        // Consulta à BD
+        //* Consulta à BD
         $query = "SELECT * FROM utilizadores WHERE username='$username'";
 
-        // Executar a consulta
+        //* Executar a consulta
         $resultado = mysqli_query($conexao, $query);
 
         if ($resultado && mysqli_num_rows($resultado) > 0) {
@@ -29,28 +29,28 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $usernameUtilizador = $utilizador['username'];
             $passwordUtilizador = $utilizador['password'];
 
-            // Verificar a password
+            //* Verificar a password
             if (password_verify($password, $passwordUtilizador)) {
-                // Se a password estiver correta, iniciar uma sessão
+                //* Se a password estiver correta, iniciar uma sessão
                 $_SESSION["login"] = true;
                 $_SESSION["id"] = $idUtilizador;
                 $_SESSION["username"] = $usernameUtilizador;
 
-                // Redirecionar para a página home.php
+                //* Redirecionar para a página home.php
                 header("location: home.php");
                 exit;
             } else {
-                // No caso de password inválida, redirecionar para o index.php com erro 2
+                //* No caso de password inválida, redirecionar para o index.php com erro 2
                 header("location: index.php?erro=2");
                 exit;
             }
         } else {
-            // Se o utilizador não for encontrado, redirecionar com erro 2
+            //* Se o utilizador não for encontrado, redirecionar com erro 2
             header("location: index.php?erro=2");
             exit;
         }
 
-        // Fechar a ligação ao MySQL
+        //* Fechar a ligação ao MySQL
         mysqli_close($conexao);
     }
 }
@@ -131,12 +131,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   </form>
 
   <?php
-  // Tratar mensagens de erro
+  //* Tratar mensagens de erro
   if (!empty($_GET["erro"])) {
     $erro = (int)$_GET["erro"];
     $erro_descricao = "";
 
-    // Definir mensagens de erro
+    //* Definir mensagens de erro
     switch ($erro) {
       case 1:
         $erro_descricao = "Username e/ou password vazio/inválido!";
@@ -146,7 +146,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         break;
     }
 
-    // Apresentar mensagens de erro
+    //* Apresentar mensagens de erro
     if (!empty($erro_descricao)) {
       echo "<div class='alert alert-danger alert-dismissible fade show' role='alert'>";
       echo htmlspecialchars($erro_descricao);
