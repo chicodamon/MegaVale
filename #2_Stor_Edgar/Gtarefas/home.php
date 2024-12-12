@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" data-bs-theme="auto">
+<html lang="en" class="h-100" data-bs-theme="auto">
   <head><script src="../assets/js/color-modes.js"></script>
 
     <meta charset="utf-8">
@@ -7,9 +7,9 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.122.0">
-    <title>Home</title>
+    <title>Cover Template · Bootstrap v5.3</title>
 
-    <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/headers/">
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/cover/">
 
     
 
@@ -96,25 +96,36 @@
       }
     </style>
 
-<main>
-  <div class="container">
-    <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
-      <a href="" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
-        <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"/></svg>
-        <span class="fs-4 text-light">Simple header</span>
-      </a>
+    
+    <!-- Custom styles for this template -->
+    <link href="cover.css" rel="stylesheet">
+  </head>
+  <body class="d-flex h-100 text-center text-bg-dark">
 
-      <ul class="nav nav-pills ">
-        <li class="nav-item"><a href="#" class="nav-link Secundary text-light" aria-current="page">Home</a></li>
-        <li class="nav-item"><a href="#" class="nav-link Secundary text-light">Features</a></li>
-        <li class="nav-item"><a href="#" class="nav-link Secundary text-light">Pricing</a></li>
-        <li class="nav-item"><a href="#" class="nav-link Secundary text-light">FAQs</a></li>
-        <li class="nav-item"><a href="#" class="nav-link Secundary text-light">About</a></li>
-      </ul>
-    </header>
-  </div>
-</main>
+    
+<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+
+<?php
+    include_once("header.inc.php");
+?>
+
+  <main class="px-3 mt-5">
+    <h1>Cover your page.</h1>
+    <p class="lead">Cover is a one-page template for building simple and beautiful home pages. Download, edit the text, and add your own fullscreen background photo to make it your own.</p>
+    <p class="lead">
+      <a href="#" class="btn btn-lg btn-light fw-bold border-white bg-white">Learn more</a>
+    </p>
+  </main>
+  <?php
+    include_once("footer.inc.php");
+?>
+</div>
 <script src="bootstrap.bundle.min.js"></script>
 
-    </body>
+
+
+
+</body>
 </html>
+
+  
