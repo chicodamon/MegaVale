@@ -1,14 +1,11 @@
 <?php
-// Ficheiro com funções reutilizáveis
-
-function hoje() {
+function hoje() { //* Funçao para dizer o dia de hoje
 
     $data = date("D");
     $dia = date("d");
     $mes = date("M");
     $ano = date("Y");
 
-    // echo $data . "<br>" . $dia . "<br>" . $mes . "<br>" . $ano;
 
     $diaSemana = array(
         "Sun" => "domingo",
@@ -34,7 +31,7 @@ function hoje() {
         "Dec" => "Dezembro"
     );
 
-    return $diaSemana[$data] . ", $dia de " . $mesExtenso[$mes] . "de $ano";
+    return $diaSemana[$data] . ", $dia de " . $mesExtenso[$mes] . " de $ano";
 
 }
 
