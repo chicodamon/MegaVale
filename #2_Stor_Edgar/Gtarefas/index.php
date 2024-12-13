@@ -2,6 +2,13 @@
 //* Iniciar uma sessão
 session_start();
 
+/* ---------------------- verificaçao do login efetuado --------------------- */
+//* verifica se o utilizador está com o login efetuado, se sim encaminhar para o home.php
+if (isset($_SESSION["login"]) && $_SESSION["login"] == true) {
+  header("location: home.php");
+  exit;
+}
+
 //* Carregar ficheiro db.php responsável pelo acesso à db
 include_once("db.php");
 

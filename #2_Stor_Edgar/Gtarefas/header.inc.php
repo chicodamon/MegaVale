@@ -15,7 +15,7 @@
       <ul class="nav nav-pills ">
         <li class="nav-item"><a href="home.php" class="nav-link text-light" aria-current="page">Home</a></li>
         <li class="nav-item"><a href="#" class="nav-link Secundary text-light">Tarefas</a></li>
-        <li class="nav-item"><a href="logout.php" class="nav-link Secundary text-light">Terminar Sessao</a></li>
+        <li class="nav-item"><a href="logout.php" class="nav-link Secundary text-light">Terminar Sessão </a></li>
       </ul>
     </header>
   </div>
