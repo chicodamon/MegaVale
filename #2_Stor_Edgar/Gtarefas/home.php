@@ -17,29 +17,41 @@
 
     <link href="cover.css" rel="stylesheet">
   </head>
-  <body class="d-flex h-100 text-center text-bg-dark">
+  <body class="d-flex text-center h-100 text-bg-dark">
 
     
 <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column ">
 
 
-
 <?php
+
+/* --------------------------------- header --------------------------------- */
+
   //* efetuar carregamento dp header.inc.php
     include_once("header.inc.php");
 
+/* --------------------------------- funções -------------------------------- */ 
+
   //* incluimos o ficheiro com as funçoes
   include_once("functions.php");
+  include_once("check_session.php");
+  /* ---------------------------------- html ---------------------------------- */
 ?>
 
+
   <main class="position-absolute top-50 start-50 translate-middle">
-    <h1>Olá, <?=$_SESSION["username"]?></h1>
+    <h1>Olá, <?php if(isset($_SESSION["username"])) { echo $_SESSION["username"]; }  ?></h1>                    <!-- se a see -->
     <p class="lead">Hoje é <?php echo hoje() ?></p>
     <p class="lead">
       <a href="#" class="btn btn-lg btn-light fw-bold border-white bg-white">Learn more</a>
     </p>
   </main>
+  
+  
   <?php
+  /* --------------------------------- footer --------------------------------- */ 
+
+
   //* Carregar o footer.inc.php
     include_once("footer.inc.php");
 ?>
