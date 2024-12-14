@@ -12,10 +12,14 @@
 
 <body class="d-flex flex-column min-vh-100 text-center h-100 text-bg-dark">
 
-    <!-- Container principal -->
     <div class="cover-container d-flex w-100 p-3 mx-auto flex-column flex-grow-1">
 
         <?php
+        ini_set('display_errors', 1);
+        ini_set('display_startup_errors', 1);
+        error_reporting(E_ALL);
+        
+
         /* --------------------------------- Header --------------------------------- */
         include_once("header.inc.php");
 
@@ -32,9 +36,9 @@
 
                 $designacaoTarefa = $tarefa[1];
                 $descricaoTarefa = $tarefa[2];
-                $prazoTarefa = $tarefa[3];
-                $prioridadeTarefa = $tarefa[4];
-                $concluidaTarefa = $tarefa[5];
+                $prazoTarefa = $tarefa[4];
+                $prioridadeTarefa = $tarefa[5];
+                $concluidaTarefa = $tarefa[6];
             } else {
                 $idTarefa = "";
                 $designacaoTarefa = "";
@@ -45,22 +49,47 @@
             }
         }
 
+        //*Vereficar se existe um POST
+
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             include_once("db.php");
 
-            $designacaoTarefa = (!empty($_POST["designacaoTarefa"])) ? $_POST["designacaoTarefa"] : "";
+            //*Verificar se os campos estao preenchidos
+            if(!empty($_POST["designacaoTarefa"])) {
+                $designacaoTarefa = $_POST["designacaoTarefa"];
+            } else {
+                $designacaoTarefa = "";
+            }
+            
+            // de outra forma com if ternario
             $idTarefa = (!empty($_POST["idTarefa"])) ? $_POST["idTarefa"] : "";
             $descricaoTarefa = (!empty($_POST["descricaoTarefa"])) ? $_POST["descricaoTarefa"] : "";
             $prazoTarefa = (!empty($_POST["prazoTarefa"])) ? $_POST["prazoTarefa"] : "";
             $prioridadeTarefa = (!empty($_POST["prioridadeTarefa"])) ? $_POST["prioridadeTarefa"] : "";
             $concluidaTarefa = (!empty($_POST["concluidaTarefa"])) ? $_POST["concluidaTarefa"] : 0;
 
-            if (empty($idTarefa)) {
-                $query = "INSERT INTO tarefas (tarefas, descricao, prazo, prioridade, concluida) VALUES ('$designacaoTarefa', '$descricaoTarefa', '$prazoTarefa', '$prioridadeTarefa', '$concluidaTarefa')";
-                $resultado = mysqli_query($conexao, $query);
+            //*inserir uma nova tarefa ou editar uma existente
+            //*se tiver um ID estamos a editar, caso contrario estamos a adicionar uma nova
 
+            if (empty($idTarefa)) {
+                $query = "INSERT INTO `tarefas`(`tarefa`, `descricao`, `prazo`, `prioridade`, `concluida`) VALUES ('$designacaoTarefa','$descricaoTarefa','$prazoTarefa','$prioridadeTarefa','$concluidaTarefa')";
+                //*executamos a consulta
+                $resultado = mysqli_query($conexao, $query);
+                if(!$resultado){
+                    die("Eroo ao executar a query: " . mysqli_error($conexao));
+                }
+                //* se o resultado der um true emcaminhamos para a pagina tarefas com msg=1
                 if ($resultado) {
                     header("location: tarefas.php?msg=1");
+                }
+            } else{
+                //* query para editar uma tarefa existente
+                $query = "update tarefas set tarefa='$designacaoTarefa', descricao='$descricaoTarefa', prazo='$prazoTarefa', prioridade='$prioridadeTarefa', concluida='$concluidaTarefa' where idTarefa = $idTarefa";
+                //*executamos a consulta
+                $resultado = mysqli_query($conexao, $query);
+                //*se o resultado retomar verdadeiro/true encaminhamos para tarefas.php com msg=2
+                if(!$resultado){
+                    header("location: tarefas.php?msg=2");
                 }
             }
         }
@@ -70,7 +99,7 @@
         ?>
 
         <!-- Conteúdo Principal -->
-        <main class="container flex-grow-1" >
+        <main class="container flex-grow-1">
             <form action="tarefa.php" method="POST">
                 <!-- Tarefa -->
                 <div class="row mb-3">
@@ -130,7 +159,7 @@
                 <!-- Botões -->
                 <div class="col">
                     <input type="hidden" name="idTarefa" value="<?= $idTarefa ?>">
-                    <button type="submit" class="btn btn-success">Guardar</button>
+                    <button type="submit" name="enviar" class="btn btn-success">Guardar</button>
                     <a href="tarefas.php" class="btn btn-danger">Cancelar</a>
                 </div>
             </form>

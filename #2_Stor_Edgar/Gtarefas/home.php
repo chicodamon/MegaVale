@@ -34,7 +34,7 @@
                 } ?></h1>
                 <p class="lead">Hoje é <?php echo hoje(); ?></p>
                 <p class="lead">
-                    <a href="tarefa.php" class="btn btn-lg btn-light fw-bold border-white bg-white">Ver Tarefas</a>
+                    <a href="tarefa.php?id=1" class="btn btn-lg btn-light fw-bold border-white bg-white">Ver Tarefas</a>
                 </p>
             </div>
         </main>
