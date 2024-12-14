@@ -1,5 +1,6 @@
 <?php
-function hoje() { //* Funçao para dizer o dia de hoje
+function hoje()
+{ //* Funçao para dizer o dia de hoje
 
     $data = date("D");
     $dia = date("d");

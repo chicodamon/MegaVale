@@ -1,11 +1,10 @@
-<div class="container">
-  <footer class="position-absolute bottom-0 start-50 translate-middle-x">
-    <ul class="nav justify-content-center border-bottom pb-3 mb-3">
-      <li class="nav-item"><a href="home.php" class="nav-link px-2 text-light ">Home</a></li>
-      <li class="nav-item"><a href="#" class="nav-link px-2 text-light">Tarefas</a></li>
-      <li class="nav-item"><a href="logout.php" class="nav-link px-2 text-light">Terminar Sessão</a></li>
-      <li class="nav-item"><a href="#" class="nav-link px-2 text-light">Sobre</a></li>
-    </ul>
-    <p class="text-center text-light ">&copy; 2024 G-Tarefas</p>
-  </footer>
-</div>
+<footer class="position-absolute bottom-0 start-0 w-100 bg-dark">
+    <div class="container">
+        <ul class="nav justify-content-center border-bottom pb-2 mb-2">
+            <li class="nav-item"><a href="home.php" class="nav-link px-2 text-light">Home</a></li>
+            <li class="nav-item"><a href="tarefa.php" class="nav-link px-2 text-light">Tarefas</a></li>
+            <li class="nav-item"><a href="logout.php" class="nav-link px-2 text-light">Terminar Sessão</a></li>
+        </ul>
+        <p class="text-center text-light">&copy; 2024 G-Tarefas</p>
+    </div>
+</footer>
