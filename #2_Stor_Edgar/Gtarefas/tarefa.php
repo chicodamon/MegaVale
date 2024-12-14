@@ -108,7 +108,7 @@
                         <div class="input-group">
                             <span class="input-group-text">Tarefa</span>
                             <input value="<?= $designacaoTarefa ?>" name="designacaoTarefa" id="tarefaInput"
-                                placeholder="Designação da Tarefa" type="text" class="form-control">
+                                placeholder="Designação da Tarefa" type="text" class="form-control shadow-none">
                         </div>
                     </div>
                 </div>
@@ -119,7 +119,7 @@
                         <div class="input-group">
                             <span class="input-group-text">Descrição</span>
                             <input value="<?= $descricaoTarefa ?>" name="descricaoTarefa" id="descricaoTarefa"
-                                placeholder="Descrição da Tarefa" type="text" class="form-control">
+                                placeholder="Descrição da Tarefa" type="text" class="form-control shadow-none">
                         </div>
                     </div>
                 </div>
@@ -130,7 +130,7 @@
                         <div class="input-group">
                             <span class="input-group-text">Prazo</span>
                             <input value="<?= $prazoTarefa ?>" name="prazoTarefa" id="prazoTarefa" type="date"
-                                class="form-control">
+                                class="form-control shadow-none">
                         </div>
                     </div>
                 </div>
@@ -138,7 +138,7 @@
                 <div class="row mb-3">
                     <div class="col-12 col-md-8 mx-auto">
                         <label for="prioridadeTarefa" class="form-label">Prioridade</label>
-                        <select name="prioridadeTarefa" id="prioridadeTarefa" class="form-select">
+                        <select name="prioridadeTarefa" id="prioridadeTarefa" class="form-select shadow-none">
                             <option value="">Selecione a prioridade</option>
                             <option value="1" <?php if ($prioridadeTarefa == "1") echo "Selected" ?>>Alta</option>
                             <option value="2" <?php if ($prioridadeTarefa == "2") echo "Selected" ?>>Média</option>
@@ -150,7 +150,7 @@
                 <div class="row mb-3">
                     <div class="col-12 col-md-8 mx-auto">
                         <label for="concluidaTarefa" class="form-label">Concluída</label>
-                        <select name="concluidaTarefa" id="concluidaTarefa" class="form-select">
+                        <select name="concluidaTarefa" id="concluidaTarefa" class="form-select shadow-none">
                             <option value="0" <?php if ($concluidaTarefa == "0") echo "Selected" ?>>Não</option>
                             <option value="1" <?php if ($concluidaTarefa == "1") echo "Selected" ?>>Sim</option>
                         </select>
