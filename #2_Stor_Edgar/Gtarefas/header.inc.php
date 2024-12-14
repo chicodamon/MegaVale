@@ -1,4 +1,6 @@
 <?php
+
+
 //* incluimos o check_session.php
 include_once("check_session.php");
 /* ----------------------- header incrementado no php ----------------------- */
@@ -35,8 +37,8 @@ include_once("check_session.php");
                         Tarefas
                     </button>
                     <ul class="dropdown-menu dropdown-menu-dark">
-                        <li><a class="dropdown-item" href="tarefa.php">Lista</a></li>
-                        <li><a class="dropdown-item" href="#">Nova</a></li>
+                        <li><a class="dropdown-item" href="#">Lista</a></li>
+                        <li><a class="dropdown-item" href="tarefa.php">Nova</a></li>
                     </ul>
                 </li>
                 <li class="nav-item"><a href="logout.php" class="nav-link Secundary text-light">Terminar Sessão </a>
