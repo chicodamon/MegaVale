@@ -98,9 +98,8 @@
         include_once("check_session.php");
         ?>
 
-        <!-- Conteúdo Principal -->
         <main class="container flex-grow-1">
-            <form action="tarefa.php" method="POST">
+            <form action="tarefa.php" method="POST"> 
                 <!-- Tarefa -->
                 <div class="row mb-3">
                     <div class="col-12 col-md-8 mx-auto">

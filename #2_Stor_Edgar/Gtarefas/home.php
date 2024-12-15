@@ -15,9 +15,9 @@
     <link href="cover.css" rel="stylesheet">
 </head>
 
-<body class="d-flex flex-column min-vh-100 text-bg-dark">
+<body class="d-flex flex-column min-vh-100 text-bg-dark flex-grow-1">
 
-    <div class="container d-flex flex-column flex-grow-1">
+    <div class="container d-flex flex-column flex-grow-1 cover-container w-100 p-3 mx-auto">
 
         <?php
         /* --------------------------------- header --------------------------------- */
